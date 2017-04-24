@@ -1,0 +1,31 @@
+{
+  "name":"biocontainers-jellyfish-test2",
+  "appId": "jturcino-run-biocontainer-singularity-0.1.0",
+  "batchQueue": "normal",
+  "executionSystem": "jturcino-stampede",
+  "maxRunTime": "01:00:00",
+  "memoryPerNode": "32GB",
+  "nodeCount": 1,
+  "processorsPerNode": 16,
+  "archive": true,
+  "archiveSystem": "data.iplantcollaborative.org",
+  "archivePath": "/jturcino/files/",
+  "inputs": {},
+  "parameters": {
+    "biocontainerName": "jelllyfish",
+    "command": "jellyfish count",
+    "commandArgs": "-m 21 -s 100M -t 10 -C -o run-singularity.jf sample.fasta"
+  },
+  "notifications": [
+    {
+      "url":"https://hooks.slack.com/services/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",
+      "event":"FINISHED",
+      "persistent":true
+    },
+    {
+      "url":"https://hooks.slack.com/services/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",
+      "event":"FAILED",
+      "persistent":true
+    }
+  ]
+}

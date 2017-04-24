@@ -1,0 +1,98 @@
+{"available":true,
+ "checkpointable":false,
+ "defaultMemoryPerNode":32,
+ "defaultProcessorsPerNode":16,
+ "defaultMaxRunTime":"01:00:00",
+ "defaultNodeCount":1,
+ "defaultQueue":"normal",
+ "deploymentPath":"/jturcino/apps/run-biocontainer-singularity",
+ "deploymentSystem":"data.iplantcollaborative.org",
+ "executionSystem":"jturcino-stampede",
+ "executionType":"HPC",
+ "helpURI":"",
+ "label": "singularity",
+ "longDescription":"",
+ "modules":[],
+ "name":"jturcino-run-biocontainer-singularity",
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "parallelism":"SERIAL",
+ "shortDescription":"Runs a singularity image command on stampede.",
+ "tags":["singularity", "stampede", "biocontainer"],
+ "templatePath":"wrapper.sh",
+ "testPath":"test/test.sh",
+ "version":"0.1.0",
+ "inputs":[
+    {"id":"additionalFileDirectory",
+     "details":
+	{"label": "Filepath to additional file directory",
+	 "description": "Path to directory container additional files required for running singularity image. Not compressed.",
+	 "argument": null,
+	 "showArgument":false
+	},
+     "value":
+	{"required":false,
+	 "visible":true
+	},
+     "semantics":
+	{"ontology":[],
+         "minCardinality":0,
+         "maxCardinality":1
+        }
+    }
+  ],
+ "parameters":[
+    {"id":"biocontainerName",
+     "details":
+        {"label":"Biocontainer name",
+         "description":"Name of biocontainer to be run. NOT the name of the singularity image.",
+         "argument":null,
+         "showArgument":false
+        },
+     "value":
+        {"default":"whalesay",
+         "type":"string",
+         "required":true,
+         "visible":true
+        },
+     "semantics":
+        {"ontology":[],
+         "minCardinality":1,
+         "maxCardinality":1
+        }
+    },
+    {"id":"command",
+     "details":
+	{"label":"Command to run",
+	 "description":"The command to run in the singularity container. ex. Rscript, python, java, mvn, php, sh",
+	 "argument":null,
+	 "showArgument":false
+        },
+     "value":
+	{"default":"",
+	 "type":"string",
+	 "required":false,
+	 "visible":true
+	},
+     "semantics":
+	{"ontology": []
+	}
+    },
+    {"id":"commandArgs",
+     "details":
+	{"label":"Command arguments",
+	 "decription":"String of command-line arguments needed. ex. main.r, main.py, -cp $CLASSPATH:lib, exec:java, -f main.php, -c main.sh ",
+	 "argument":null,
+	 "showArgument":false
+	},
+     "value":
+	{"default": "",
+	 "type": "string",
+	 "required":false,
+	 "visible":true
+	},
+     "semantics":
+	{"ontology": []
+        }
+    }
+  ]
+}
